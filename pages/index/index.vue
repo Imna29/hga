@@ -43,16 +43,16 @@ const certNumber = ref("");
             </div>
             <div class="mt-4 flex justify-center gap-8">
                 <div>
-                    <i class="pi pi-facebook text-6xl text-blue-500"></i>
+                    <i class="pi pi-facebook text-6xl text-blue-500" style="font-size: 3.75rem !important;"></i>
                 </div>
                 <div>
-                    <i class="pi pi-twitter text-6xl text-white"></i>
+                    <i class="pi pi-twitter text-6xl text-white" style="font-size: 3.75rem !important;"></i>
                 </div>
                 <div>
-                    <i class="pi pi-instagram text-6xl text-pink-500"></i>
+                    <i class="pi pi-instagram text-6xl text-pink-500" style="font-size: 3.75rem !important;"></i>
                 </div>
                 <div>
-                    <i class="pi pi-youtube text-6xl text-red-700"></i>
+                    <i class="pi pi-youtube text-6xl text-red-700" style="font-size: 3.75rem !important; "></i>
                 </div>
             </div>
         </div>
