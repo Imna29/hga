@@ -1,0 +1,35 @@
+{
+  "name": "hga",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@firebase/auth": "^1.7.9",
+    "@nuxt/fonts": "^0.10.0",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@pinia/nuxt": "^0.5.5",
+    "@vee-validate/nuxt": "^4.13.2",
+    "firebase": "^10.14.0",
+    "lucide-vue-next": "^0.451.0",
+    "nuxt": "^3.13.2",
+    "nuxt-vuefire": "^1.0.4",
+    "pinia": "^2.2.4",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.1.0",
+    "tailwindcss-primeui": "^0.3.4",
+    "vee-validate": "^4.13.2",
+    "vue": "latest",
+    "vue-router": "latest",
+    "vuefire": "^3.2.0"
+  },
+  "devDependencies": {
+    "@primevue/nuxt-module": "^4.1.0"
+  }
+}
