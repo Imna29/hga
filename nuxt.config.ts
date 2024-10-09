@@ -14,10 +14,20 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/image",
   ],
+  app: {
+    head: {
+      htmlAttrs: {
+        class: 'app-dark-mode'
+      }
+    }
+  },
   primevue: {
     options: {
       theme: {
         preset: Aura,
+        options: {
+          darkModeSelector: '.app-dark-mode'
+        }
       },
     },
   },
