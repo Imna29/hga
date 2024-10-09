@@ -32,8 +32,8 @@ const certNumber = ref("");
                     item
                 </div>
                 <IconField class="w-1/2 mx-auto mt-2">
-                    <InputIcon class="pi pi-search"/>
-                    <InputText class="w-full" v-model="certNumber" placeholder="Enter Cert Number"/>
+                    <InputIcon class="pi pi-search" />
+                    <InputText class="w-full" v-model="certNumber" placeholder="Enter Cert Number" />
                 </IconField>
             </div>
         </div>
@@ -43,24 +43,23 @@ const certNumber = ref("");
             </div>
             <div class="mt-4 flex justify-center gap-8">
                 <div>
-                    <i class="pi pi-facebook text-8xl text-blue-500"></i>
+                    <i class="pi pi-facebook text-6xl text-blue-500"></i>
                 </div>
                 <div>
-                    <i class="pi pi-twitter text-8xl text-white"></i>
+                    <i class="pi pi-twitter text-6xl text-white"></i>
                 </div>
                 <div>
-                    <i class="pi pi-instagram text-8xl text-pink-500"></i>
+                    <i class="pi pi-instagram text-6xl text-pink-500"></i>
                 </div>
                 <div>
-                    <i class="pi pi-youtube text-8xl text-red-700"></i>
+                    <i class="pi pi-youtube text-6xl text-red-700"></i>
                 </div>
             </div>
         </div>
         <div class="mt-48 text-center">
             <h1 class="text-5xl font-bold">Start Now!</h1>
             <h3 class="text-lg font-bold mt-4">Start your submission today to elevate your collection!</h3>
-            <PricingTable class="mt-4"/>
+            <PricingTable class="mt-4" />
         </div>
     </div>
 </template>
-
