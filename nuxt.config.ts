@@ -22,14 +22,7 @@ export default defineNuxtConfig({
     }
   },
   primevue: {
-    options: {
-      theme: {
-        preset: Aura,
-        options: {
-          darkModeSelector: '.app-dark-mode'
-        }
-      },
-    },
+   importTheme: {from: '~/themes/theme.js'}
   },
 
   css: ["primeicons/primeicons.css"],
