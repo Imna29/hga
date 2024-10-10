@@ -14,12 +14,16 @@ const MyPreset = definePreset(Aura, {
             700: '{blue.700}',
             800: '{blue.800}',
             900: '{blue.900}',
-            950: '{blue.950}'
+            950: '{blue.950}',
+            
         },
-        surface: {
-            
+        colorScheme: {
+            dark: {
+                primary: {
+                    color: '{blue.700}'
+                }
+            }
         }
-            
     }
 });
 
