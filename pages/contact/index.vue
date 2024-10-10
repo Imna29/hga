@@ -10,7 +10,7 @@ const [message, messageAttrs] = defineField('message');
 const faqs = ref([
   {
     title: 'What is minifigure grading?',
-    content: 'Minifigure grading is the process of evaluating, authenticating, and preserving LEGO minifigures. Our experts assess each figure\'s condition based on comprehensive criteria and encapsulate them in custom-designed acrylic cases for protection and display.',
+    content: 'Minifigure grading is the process of evaluating, authenticating, and preserving your LEGO minifigures. Our experts assess each figure\'s condition based on comprehensive criteria, assign them a grade, and encapsulate them in custom-designed acrylic cases for protection and display.',
     value: '0'
   },
   {
@@ -20,7 +20,7 @@ const faqs = ref([
   },
   {
     title: 'How does the grading process work?',
-    content: 'Our team utilizes detailed imaging to compare your minifigures against our meticulous grading criteria. We assess factors like paint quality, plastic integrity, and overall appearance to assign an accurate grade.',
+    content: 'Our team utilizes detailed imaging and years of expertise to compare your minifigures against our meticulous grading criteria. We assess factors like print quality, figure integrity, wear, and overall appearance to assign an accurate grade.',
     value: '2'
   },
   {
@@ -30,7 +30,7 @@ const faqs = ref([
   },
   {
     title: 'What types of minifigures do you grade?',
-    content: 'We offer grading services for standard figures, tall figures, and big figures (big figs). Each category has specific size dimensions, and figures must fit within these dimensions, including any accessories.',
+    content: 'We currently only offer grading services for standard sized minifigures. in the future we will accept tall figures and big figures (big figs) as well. Each category has specific size dimensions, and figures must fit within these dimensions, including any accessories.',
     value: '4'
   },
   {
@@ -40,7 +40,7 @@ const faqs = ref([
   },
   {
     title: 'How do I submit my minifigures for grading?',
-    content: 'To submit your minifigures, please follow the submission guidelines on our website. Ensure your figures are securely packaged to prevent damage during shipping and include a completed submission form.',
+    content: 'To submit your minifigures, please follow the submission guidelines on our website. Start and complete a submission form and ship your figure(s) to us to be assessed and graded. Ensure your figures are securely packaged to prevent damage during shipping and include a completed submission form.',
     value: '6'
   },
   {
@@ -50,7 +50,7 @@ const faqs = ref([
   },
   {
     title: 'How much does grading cost?',
-    content: 'Pricing varies depending on the type and size of the figure. For detailed information, please visit our pricing page or contact us directly.',
+    content: 'Pricing varies depending on the type of submission. For instance, bulk submissions offer a discounted price per figure. For detailed pricing information, please visit our services page or contact us directly.',
     value: '8'
   },
   {
@@ -69,7 +69,7 @@ const faqs = ref([
       Contact Us
     </div>
     <div class="text-center mt-10 w-3/4 mx-auto text-lg font-sem">
-      We are always happy to hear from you! If you have any questions or concerns, please feel free to reach out to us.
+      Reach out with any HGA questions, we're here to help. 
     </div>
     <div class="mt-10 md:w-1/2 w-full mx-auto flex flex-col gap-8">
       <div class="grid grid-cols-2 gap-4">
