@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 const events = ref([
-  { status: 'Ordered', icon: 'pi pi-shopping-cart', color: '#9C27B0', desciption: "Your order for grading has been submitted and the team awaits your figure(s)." },
-  { status: 'Shipped', icon: 'pi pi-truck', color: '#FF9800', desciption: "Your order has been shipped and tracking for your submission has been uploaded." },
-  { status: 'Received', icon: 'pi pi-check', color: '#9C27B0', desciption: "Your order has been received, we are currently processing your figure(s)." },
-  { status: 'Grading', icon: 'pi pi-cog', color: '#FF9800', desciption: "Your figure(s) are being inspected and assigned a grade. You will be sent an email once this process is complete." },
-  { status: "Encasing", icon: 'pi pi-box', color: '#9C27B0', desciption: "Your figure(s) are being fitted into one of our custom-designed acrylic cases." },
-  { status: 'Shipped', icon: 'pi pi-send', color: '#FF9800', desciption: "Your order has been shipped back to you and a tracking number has been provided to you via email." },
-  { status: 'Delivered', icon: 'pi pi-verified', color: '#097969', desciption: "Your graded figur(s) have been delivered." },
+  { status: 'Ordered', icon: 'pi pi-shopping-cart', color: 'bg-purple-800', desciption: "Your order for grading has been submitted and the team awaits your figure(s)." },
+  { status: 'Shipped', icon: 'pi pi-truck', color: 'bg-amber-800', desciption: "Your order has been shipped and tracking for your submission has been uploaded." },
+  { status: 'Received', icon: 'pi pi-check', color: 'bg-purple-800', desciption: "Your order has been received, we are currently processing your figure(s)." },
+  { status: 'Grading', icon: 'pi pi-cog', color: 'bg-amber-800', desciption: "Your figure(s) are being inspected and assigned a grade. You will be sent an email once this process is complete." },
+  { status: "Encasing", icon: 'pi pi-box', color: 'bg-purple-800', desciption: "Your figure(s) are being fitted into one of our custom-designed acrylic cases." },
+  { status: 'Shipped', icon: 'pi pi-send', color: 'bg-amber-800', desciption: "Your order has been shipped back to you and a tracking number has been provided to you via email." },
+  { status: 'Delivered', icon: 'pi pi-verified', color: 'bg-green-700', desciption: "Your graded figur(s) have been delivered." },
 ]);
 </script>
 
@@ -28,7 +28,7 @@ const events = ref([
     <Timeline :value="events" align="alternate" class="customized-timeline mt-2">
       <template #marker="slotProps">
         <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm"
-          :style="{ backgroundColor: slotProps.item.color }">
+          :class="slotProps.item.color">
           <i :class="slotProps.item.icon"></i>
         </span>
       </template>
@@ -39,9 +39,6 @@ const events = ref([
           </template>
 
           <template #content>
-            <img v-if="slotProps.item.image"
-              :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.item.image}`"
-              :alt="slotProps.item.name" width="200" class="shadow-sm" />
             <p>
               {{ slotProps.item.desciption }}
             </p>

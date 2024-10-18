@@ -10,7 +10,7 @@
             <div class="text-5xl">
                 $24.75
             </div>
-            <div class="flex justify-center mt-4 flex-nowrap mt-auto">
+            <div class="flex justify-center flex-nowrap mt-auto">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
             </div>
             <div class="mt-auto">

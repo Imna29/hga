@@ -132,7 +132,9 @@ const scales: {
                 <div v-for="scale in scales" :key="scale.grade"
                     class="bg-surface-800 shadow-md hover:shadow-lg transition-shadow duration-300 p-6 rounded-xl">
                     <div>
-                        <span class="text-2xl font-extrabold text-primary">{{
+                        <span class="text-2xl font-extrabold"
+                            :class="`${scale.title === 'Pristine' ? 'text-yellow-500' : 'text-primary'}`"
+                        >{{
                             scale.grade
                             }}</span>
                         <span class="ml-4 text-xl font-semibold text-color">{{
