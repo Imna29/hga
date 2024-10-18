@@ -33,7 +33,7 @@ const certNumber = ref("");
         </div>
         <div class="flex justify-center mt-96">
             <div class="w-3/4  text-center bg-surface-800 py-24 bg-opacity-80 rounded-xl">
-                <div class="text-7xl">Cert Number Lookup</div>
+                <div class="text-5xl">Cert Number Lookup</div>
                 <div class="text-2xl mt-4">Enter cert number found on graded case to view extra Information on your
                     item
                 </div>
