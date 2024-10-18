@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CircleUserRound } from 'lucide-vue-next';
 
 const router = useRouter();
 const items = ref([
@@ -67,7 +68,10 @@ const items = ref([
                     </NuxtLink>
                 </template>
                 <template #end>
-                    <Button>Login</Button>
+                    <div class="flex items-center gap-4">
+                        <Button>Submit</Button>
+                        <CircleUserRound class="cursor-pointer":size="32"/>
+                    </div>
                 </template>
             </Menubar>
             <slot />

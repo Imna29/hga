@@ -10,7 +10,7 @@
             <div class="text-5xl">
                 $24.75
             </div>
-            <div class="flex justify-center mt-4 flex-nowrap">
+            <div class="flex justify-center mt-4 flex-nowrap mt-auto">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
             </div>
             <div class="mt-auto">
@@ -21,25 +21,25 @@
 
         <div class="bg-surface-800 p-4 h-full flex flex-col gap-4 rounded-2xl">
             <div class="text-3xl font-bold">
-                Standard
+                Core
             </div>
             <div class="text-lg">
-                Grade up to 4 figures with our standard service
+                Grade up to 4 figures with our core service
             </div>
             <div class="text-5xl">
                 $29.75
             </div>
-            <div class="flex justify-center flex-nowrap">
+            <div class="flex justify-center flex-nowrap mt-auto">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
             </div>
-            <div class="mt-auto">
+            <div class="">
                 <Button><span class="text-xl">Submit</span></Button>
             </div>
         </div>
 
         <div class="bg-surface-800 p-4 h-full flex flex-col gap-4 rounded-2xl">
             <div class="text-3xl font-bold">
-                Bulk Order
+                Bulk
             </div>
             <div class="text-lg">
                 Grade 5 or more figures at once and save on each
@@ -47,12 +47,12 @@
             <div class="text-5xl ">
                 $19.75
             </div>
-            <div class="flex justify-center  flex-nowrap">
+            <div class="flex justify-center mt-auto  flex-nowrap">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
                 <img src="/economy.png" class="w-1/3" alt="Economy">
             </div>
-            <div class="mt-auto">
+            <div class="">
                 <Button><span class="text-xl">Submit</span></Button>
             </div>
         </div>
