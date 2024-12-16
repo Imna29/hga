@@ -130,22 +130,21 @@ const scales: {
         <div class="mt-10 w-11/12 mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <div v-for="scale in scales" :key="scale.grade"
-                    class="bg-surface-800 shadow-md hover:shadow-lg transition-shadow duration-300 p-6 rounded-xl">
+                    class="dark:bg-surface-800 bg-surface-400 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 rounded-xl">
                     <div>
                         <span class="text-2xl font-extrabold"
-                            :class="`${scale.title === 'Pristine' ? 'text-yellow-500' : 'text-primary'}`"
-                        >{{
-                            scale.grade
+                            :class="`${scale.title === 'Pristine' ? 'text-yellow-500' : 'text-primary'}`">{{
+                                scale.grade
                             }}</span>
-                        <span class="ml-4 text-xl font-semibold text-color">{{
+                        <span class="ml-4 text-xl font-semibold ">{{
                             scale.title
-                            }}</span>
+                        }}</span>
                     </div>
                     <Divider />
-                    <div class="mt-2 text-color font-semibold">
+                    <div class="mt-2  font-semibold">
                         {{ scale.description }}
                     </div>
-                    <ul class="mt-4 list-disc list-inside text-color space-y-1">
+                    <ul class="mt-4 list-disc list-inside  space-y-1">
                         <li v-for="feature in scale.features" :key="feature">
                             {{ feature }}
                         </li>

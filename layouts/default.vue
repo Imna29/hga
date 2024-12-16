@@ -2,6 +2,7 @@
 import { CircleUserRound } from 'lucide-vue-next';
 
 const router = useRouter();
+const colorMode = useColorMode();
 const items = ref([
     {
         label: "Home",
@@ -46,11 +47,16 @@ const items = ref([
         ]
     }
 ]);
+
+function toggleColorMode() {
+    colorMode.preference = colorMode.preference === "light" ? "dark" : "light";
+}   
+
 </script>
 
 <template>
     <div class="background">
-        <div class="container mx-auto pt-2">
+        <div class="container mx-auto pt-2 min-h-dvh">
             <Menubar :model="items" class=" pb-2">
                 <template #start>
                     <div>
@@ -69,8 +75,13 @@ const items = ref([
                 </template>
                 <template #end>
                     <div class="flex items-center gap-4">
+                        <ClientOnly>
+                            <i class="pi pi-sun cursor-pointer hover:bg-surface-400 p-2 rounded-xl" @click="toggleColorMode" v-if="useColorMode().value==='dark'"/>
+                            <i class="pi pi-moon cursor-pointer hover:bg-surface-400 p-2 rounded-xl" @click="toggleColorMode" v-if="useColorMode().value==='light'"/>
+                        </ClientOnly>
                         <Button>Submit</Button>
-                        <CircleUserRound class="cursor-pointer":size="32"/>
+                        <CircleUserRound class="cursor-pointer" :size="32"
+                            @click="navigateTo('/dashboard')" />
                     </div>
                 </template>
             </Menubar>
@@ -105,11 +116,18 @@ const items = ref([
     letter-spacing: 0.1em;
 }
 
-.background {
+.dark-mode .background {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/public/background4.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
+}
+
+.light-mode .background {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/public/background4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>

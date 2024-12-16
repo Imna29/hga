@@ -1,13 +1,14 @@
+<script setup lang="ts">
+import { ClerkLoaded } from 'vue-clerk';
+</script>
+
 <template>
-    <div>
-        <NuxtLayout>
+    <NuxtLayout>
+        <ClerkLoaded>
             <NuxtPage />
-        </NuxtLayout>
-    </div>
+        </ClerkLoaded>
+    </NuxtLayout>
 </template>
 
 <style>
-body {
-
-}
 </style>

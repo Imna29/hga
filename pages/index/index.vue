@@ -32,7 +32,7 @@ const certNumber = ref("");
             </p>
         </div>
         <div class="flex justify-center mt-96">
-            <div class="w-3/4  text-center bg-surface-800 py-24 bg-opacity-80 rounded-xl">
+            <div class="w-3/4  text-center dark:bg-surface-800 bg-surface-300 py-24 bg-opacity-80 rounded-xl">
                 <div class="text-5xl">Cert Number Lookup</div>
                 <div class="text-2xl mt-4">Enter cert number found on graded case to view extra Information on your
                     item
@@ -57,7 +57,7 @@ const certNumber = ref("");
                     <i class="pi pi-facebook text-6xl text-blue-500" style="font-size: 3.75rem !important;"></i>
                 </div>
                 <div>
-                    <i class="pi pi-twitter text-6xl text-white" style="font-size: 3.75rem !important;"></i>
+                    <i class="pi pi-twitter text-6xl dark:text-white" style="font-size: 3.75rem !important;"></i>
                 </div>
                 <div>
                     <i class="pi pi-instagram text-6xl text-pink-500" style="font-size: 3.75rem !important;"></i>
