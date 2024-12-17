@@ -117,7 +117,7 @@ const images = computed(() => {
             <div class="col-span-1 dark:bg-primary bg-surface-100 text-center rounded-lg">
                 <div class="p-4">
                     <div>
-                        <i class="pi pi-star text-2xldark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
+                        <i class="pi pi-star text-2xl dark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
                     </div>
                     <div class="text-4xl my-2 font-semibold">
                         {{ !avgGradePending ? avgGrade : "loading..." }}
