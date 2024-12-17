@@ -31,31 +31,31 @@ const signOut = async () => {
         <SignedIn>
             <div class="mx-auto mt-8 sm:px-8 px-2 md:px-16">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-2 dark:bg-surface-800 bg-surface-400 rounded-xl p-4 md:block hidden h-fit">
+                    <div class="col-span-2 dark:bg-surface-800 bg-surface-100 rounded-xl p-4 md:block hidden h-fit">
                         <div class="flex justify-between">
-                            <div class="logo text-5xl p-2">HGA</div>
+                            <div class="logo text-5xl p-2">HAN</div>
                             <div class="">
                                 <NuxtLink to="/">
-                                    <i class="pi pi-home p-2 hover:bg-surface-400 rounded-xl cursor-pointer" />
+                                    <i class="pi pi-home p-2 hover:bg-surface-300 rounded-xl cursor-pointer" />
                                 </NuxtLink>
                             </div>
                         </div>
                         <div class="flex flex-col gap-2">
                             <NuxtLink v-for="item in navMenuItems" :key="item.label" :to="item.to">
                                 <div
-                                    class="dark:hover:bg-surface-700 hover:bg-surface-300 p-2 text-lg rounded-md lg:text-start text-center">
+                                    class="dark:hover:bg-surface-700 hover:bg-surface-200 p-2 text-lg rounded-md lg:text-start text-center">
                                     <i :class="item.icon"></i>
                                     {{ item.label }}
                                 </div>
                             </NuxtLink>
                             <NuxtLink v-if="user.user.value?.publicMetadata.isAdmin" to="/dashboard/admin">
                                 <div
-                                    class="dark:hover:bg-surface-700 hover:bg-surface-300 p-2 text-lg rounded-md lg:text-start text-center">
+                                    class="dark:hover:bg-surface-700 hover:bg-surface-200 p-2 text-lg rounded-md lg:text-start text-center">
                                     <i class="pi pi-cog"></i>
                                     Admin
                                 </div>
                             </NuxtLink>
-                            <Button @click="signOut">Sign Out</Button>
+                            <Button @click="signOut"  severity="primary">Sign Out</Button>
 
                         </div>
                     </div>

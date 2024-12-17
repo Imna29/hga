@@ -8,7 +8,7 @@
             Our Services
         </div>
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="dark:bg-surface-800 bg-surface-400 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
+            <div class="dark:bg-surface-800 bg-surface-100 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
                 <img src="/economy.png" class="mx-auto" alt="Economy" />
             </div>
             <div class="p-4 gap-4 rounded-2xl w-3/4 ml-5 my-auto">
@@ -37,13 +37,13 @@
 
                 </div>
             </div>
-            <div class="dark:bg-surface-800 bg-surface-400 p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto">
+            <div class="dark:bg-surface-800 bg-surface-100 p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto">
                 <img src="/economy.png" class="mx-auto" alt="Economy" />
             </div>
 
         </div>
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="dark:bg-surface-800 bg-surface-400 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
+            <div class="dark:bg-surface-800 bg-surface-100 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
                 <img src="/economy.png" class="mx-auto" alt="Economy" />
             </div>
             <div class="p-4 gap-4 rounded-2xl w-3/4 ml-5 my-auto">

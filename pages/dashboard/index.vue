@@ -92,10 +92,10 @@ const images = computed(() => {
 <template>
     <div>
         <div class="grid lg:grid-cols-4 grid-cols-2 gap-8">
-            <div class="col-span-1 bg-primary text-center rounded-lg">
+            <div class="col-span-1 dark:bg-primary bg-surface-100 text-center rounded-lg">
                 <div class="p-4">
                     <div>
-                        <i class="pi pi-shopping-cart text-2xl bg-primary-600 p-3 rounded-3xl"></i>
+                        <i class="pi pi-shopping-cart text-2xl dark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
                     </div>
                     <div class="text-4xl my-2 font-semibold">
                         {{ !activeOrdersPending ? activeOrders : "loading..." }}
@@ -103,10 +103,10 @@ const images = computed(() => {
                     Active Orders
                 </div>
             </div>
-            <div class="col-span-1 bg-primary text-center rounded-lg">
+            <div class="col-span-1 dark:bg-primary bg-surface-100 text-center rounded-lg">
                 <div class="p-4">
                     <div>
-                        <i class="pi pi-image text-2xl bg-primary-600 p-3 rounded-3xl"></i>
+                        <i class="pi pi-image text-2xl dark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
                     </div>
                     <div class="text-4xl my-2 font-semibold">
                         {{ !figuresPending ? figures : "loading..." }}
@@ -114,10 +114,10 @@ const images = computed(() => {
                     Figures
                 </div>
             </div>
-            <div class="col-span-1 bg-primary text-center rounded-lg">
+            <div class="col-span-1 dark:bg-primary bg-surface-100 text-center rounded-lg">
                 <div class="p-4">
                     <div>
-                        <i class="pi pi-star text-2xl bg-primary-600 p-3 rounded-3xl"></i>
+                        <i class="pi pi-star text-2xldark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
                     </div>
                     <div class="text-4xl my-2 font-semibold">
                         {{ !avgGradePending ? avgGrade : "loading..." }}
@@ -125,10 +125,10 @@ const images = computed(() => {
                     Avg. Grade
                 </div>
             </div>
-            <div class="col-span-1 bg-primary text-center rounded-lg">
+            <div class="col-span-1 dark:bg-primary bg-surface-100 text-center rounded-lg">
                 <div class="p-4">
                     <div>
-                        <i class="pi pi-check text-2xl bg-primary-600 p-3 rounded-3xl"></i>
+                        <i class="pi pi-check text-2xl dark:bg-primary-600 bg-surface-200 p-3 rounded-3xl"></i>
                     </div>
                     <div class="text-4xl my-2 font-semibold">
                         {{
@@ -199,7 +199,7 @@ const images = computed(() => {
                 <div>
                     <h2 class="text-2xl">Latest Order Updates</h2>
                 </div>
-                <ScrollPanel class="h-[500px] dark:bg-surface-800 bg-surface-400 rounded-lg p-4 mt-2">
+                <ScrollPanel class="h-[500px] dark:bg-surface-800 bg-surface-100 rounded-lg p-4 mt-2">
                     <div v-for="status in latestStatusUpdates" :key="status.id" class="mt-4"
                         v-if="!latestStatusUpdatesPending && latestStatusUpdates !== undefined && latestStatusUpdates?.length > 0">
                         <Card>

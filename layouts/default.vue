@@ -5,11 +5,6 @@ const router = useRouter();
 const colorMode = useColorMode();
 const items = ref([
     {
-        label: "Home",
-        icon: "pi pi-home",
-        to: "/"
-    },
-    {
         label: "Services",
         icon: "pi pi-hammer",
         to: "/services"
@@ -59,28 +54,28 @@ function toggleColorMode() {
         <div class="container mx-auto pt-2 min-h-dvh">
             <Menubar :model="items" class=" pb-2">
                 <template #start>
-                    <div>
+                    <div class="dark:text-color text-black flex items-center">
                         <NuxtLink to="/" class="font-mono text-4xl logo mr-5">
-                            HGA
+                            HAN
                         </NuxtLink>
                     </div>
                 </template>
-                <template #item="{ item, props, hasSubmenu, root }">
-                    <NuxtLink class="flex items-center" v-bind="props.action" :to="item.to">
-                        <span :class="item.icon" />
-                        <span class="ml-2">{{ item.label }}</span>
+                <template #item="{ item, props, hasSubmenu, root }" >
+                    <NuxtLink class="flex items-center " v-bind="props.action" :to="item.to">
+                        <span :class="item.icon" class="dark:text-color text-black" />
+                        <span class="ml-2 dark:text-color text-black">{{ item.label }}</span>
                         <i v-if="hasSubmenu"
-                            :class="['pi pi-angle-down', { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root }]"></i>
+                            :class="['pi pi-angle-down dark:text-color text-black', { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root }]"></i>
                     </NuxtLink>
                 </template>
                 <template #end>
                     <div class="flex items-center gap-4">
                         <ClientOnly>
-                            <i class="pi pi-sun cursor-pointer hover:bg-surface-400 p-2 rounded-xl" @click="toggleColorMode" v-if="useColorMode().value==='dark'"/>
-                            <i class="pi pi-moon cursor-pointer hover:bg-surface-400 p-2 rounded-xl" @click="toggleColorMode" v-if="useColorMode().value==='light'"/>
+                            <i class="pi pi-sun cursor-pointer hover:bg-surface-300 p-2 rounded-xl" @click="toggleColorMode" v-if="useColorMode().value==='dark'"/>
+                            <i class="pi pi-moon cursor-pointer hover:bg-surface-300 p-2 rounded-xl text-black" @click="toggleColorMode" v-if="useColorMode().value==='light'"/>
                         </ClientOnly>
                         <Button>Submit</Button>
-                        <CircleUserRound class="cursor-pointer" :size="32"
+                        <CircleUserRound class="cursor-pointer dark:text-color text-black" :size="32"
                             @click="navigateTo('/dashboard')" />
                     </div>
                 </template>
@@ -88,12 +83,12 @@ function toggleColorMode() {
             <slot />
             <div class="mt-16 pb-4 flex">
                 <NuxtLink to="/" class="font-mono text-4xl logo mr-5">
-                    HGA
+                    HAN
                 </NuxtLink>
 
 
                 <div class="ml-auto">
-                    HGAfigs@gmail.com
+                    HANfigs@gmail.com
 
                     |
 
@@ -117,7 +112,7 @@ function toggleColorMode() {
 }
 
 .dark-mode .background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/public/background4.jpg");
+    background-image: linear-gradient(rgba(29, 29, 29, 0.7),rgba(29, 29, 29, 0.7)), url("/public/background4.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +120,7 @@ function toggleColorMode() {
 }
 
 .light-mode .background {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/public/background4.jpg");
+    background-image: linear-gradient(rgba(246, 245, 236, 0.9), rgba(246, 245, 236, 0.9)), url("/public/background4.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 <template>
     <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
-        <div class="dark:bg-surface-800 bg-surface-400 p-4 h-full flex flex-col gap-4 rounded-2xl">
+        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
             <div class="text-3xl font-bold">
                 Economy
             </div>
@@ -19,7 +19,7 @@
         </div>
 
 
-        <div class="dark:bg-surface-800 bg-surface-400 p-4 h-full flex flex-col gap-4 rounded-2xl">
+        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
             <div class="text-3xl font-bold">
                 Core
             </div>
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="dark:bg-surface-800 bg-surface-400 p-4 h-full flex flex-col gap-4 rounded-2xl">
+        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
             <div class="text-3xl font-bold">
                 Bulk
             </div>

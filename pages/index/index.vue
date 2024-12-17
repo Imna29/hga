@@ -6,7 +6,9 @@ const certNumber = ref("");
 <template>
     <div>
         <div class="w-full md:grid grid-cols-2 h-[500px]">
-            <div></div>
+            <div>
+                <img src="/case.png" alt="hero" class="object-cover h-full w-full" />
+            </div>
             <div class="mt-20 pr-20">
                 <h1 class="text-6xl font-bold text-right">
                     Immortalize
@@ -25,21 +27,22 @@ const certNumber = ref("");
         </div>
         <div class="w-1/2 mx-auto text-center">
             <p class="text-2xl mt-8">
-                HGA, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to the
+                HAN, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to the
                 minifigure collecting community. Enhance your collection by having your figures authenticated,
                 graded, and preserved in our custom-designed acrylic cases, serving as both protection and a
                 stunning display for your prized collection.
             </p>
         </div>
         <div class="flex justify-center mt-96">
-            <div class="w-3/4  text-center dark:bg-surface-800 bg-surface-300 py-24 bg-opacity-80 rounded-xl">
+            <div class="w-3/4  text-center dark:bg-surface-800 bg-surface-100 py-24 bg-opacity-80 rounded-xl">
                 <div class="text-5xl">Cert Number Lookup</div>
                 <div class="text-2xl mt-4">Enter cert number found on graded case to view extra Information on your
                     item
                 </div>
                 <IconField class="w-1/2 mx-auto mt-4 ">
                     <InputIcon class="pi pi-search" />
-                    <InputText class="w-full h-[60px]" v-model="certNumber" placeholder="Enter Cert Number" size="large"/>
+                    <InputText class="w-full h-[60px]" v-model="certNumber" placeholder="Enter Cert Number"
+                        size="large" />
                 </IconField>
             </div>
         </div>
@@ -50,7 +53,7 @@ const certNumber = ref("");
         </div>
         <div class="w-1/2  text-center mx-auto mt-32">
             <div class="text-5xl font-bold">Our Socials</div>
-            <div class="text-lg mt-2">Check out our socials and stay up to date on everything HGA!
+            <div class="text-lg mt-2">Check out our socials and stay up to date on everything HAN!
             </div>
             <div class="mt-4 flex justify-center gap-8">
                 <div>
@@ -67,6 +70,6 @@ const certNumber = ref("");
                 </div>
             </div>
         </div>
-        
+
     </div>
 </template>

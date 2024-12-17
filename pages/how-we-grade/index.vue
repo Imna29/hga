@@ -34,7 +34,7 @@ const scales: {
             features: [
                 "Moderate yellowing",
                 "Moderate cracking (legs, arms)",
-                "Dented / scratched",
+                "Dents / scratched",
                 "Stained",
             ],
         },
@@ -96,13 +96,13 @@ const scales: {
             grade: "9",
             title: "Mint",
             description: "Figure is almost perfect with 1 flaw",
-            features: ["Little wing wear", "Few micro scratches"],
+            features: ["Little swing wear", "Few micro scratches"],
         },
         {
             grade: "10",
             title: "Gem MT",
             description: "Figure is virtually perfect",
-            features: ["No wing wear", "Very few to no micro scratches"],
+            features: ["No swing wear", "Very few to no micro scratches"],
         },
         {
             grade: "10",
@@ -110,7 +110,7 @@ const scales: {
             description: "Figure is flawless",
             features: [
                 "New / appears new",
-                "No wing wear",
+                "No swing wear",
                 "No scratches",
                 "No micro marks",
             ],
@@ -130,7 +130,7 @@ const scales: {
         <div class="mt-10 w-11/12 mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <div v-for="scale in scales" :key="scale.grade"
-                    class="dark:bg-surface-800 bg-surface-400 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 rounded-xl">
+                    class="dark:bg-surface-800 bg-surface-100 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 rounded-xl">
                     <div>
                         <span class="text-2xl font-extrabold"
                             :class="`${scale.title === 'Pristine' ? 'text-yellow-500' : 'text-primary'}`">{{
