@@ -1,4 +1,3 @@
-import Aura from "@primevue/themes/aura";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -12,7 +11,7 @@ export default defineNuxtConfig({
       "@nuxtjs/tailwindcss",
       "@nuxt/fonts",
       "@nuxt/image",
-      "vue-clerk/nuxt",
+      "@clerk/nuxt",
       '@vee-validate/nuxt',
       "@nuxtjs/color-mode",
     ],
@@ -23,7 +22,7 @@ export default defineNuxtConfig({
     },
 
     routeRules: {
-        '/dashboard/**': {ssr: true},
+        '/dashboard/**': {ssr: false},
         '/api/**': {
             proxy: process.env.NUXT_PUBLIC_API_BASE_URL + "/**"
         }

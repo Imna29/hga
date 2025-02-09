@@ -8,6 +8,7 @@ export default interface Piece {
     name: string;                    // Name of the piece
     images: string[];                // Array of image URLs or paths
     grade?: number;                  // Optional grade (integer)
+    isPristine: boolean;            // Optional boolean flag
     description?: string;            // Optional description (string)
     createdAt: Date;                 // Date when the piece was created
     updatedAt: Date;                 // Date when the piece was last updated

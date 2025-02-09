@@ -10,7 +10,7 @@ definePageMeta({
 const orderStore = useOrdersStore();
 
 const {
-    isPending: isOrdersPending,
+    isLoading: isOrdersPending,
     data: orders,
     error,
 } = useQuery({
@@ -18,7 +18,7 @@ const {
     queryFn: () => orderStore.ordersRepo.getOrders(),
 });
 const {
-    isPending: activeOrdersPending,
+    isLoading: activeOrdersPending,
     data: activeOrders,
     error: activeOrdersError,
 } = useQuery({
@@ -26,16 +26,16 @@ const {
     queryFn: () => orderStore.ordersRepo.getActiveOrdersCount(),
 });
 const {
-    isPending: figuresPending,
+    isLoading: figuresPending,
     data: figures,
     error: figuresError,
 } = useQuery({
-    queryKey: ["figures"],
+    queryKey: ["figuresCount"],
     queryFn: () => orderStore.ordersRepo.getFiguresCount(),
 });
 const {
     data: avgGrade,
-    isPending: avgGradePending,
+    isLoading: avgGradePending,
     error: avgGradeError,
 } = useQuery({
     queryKey: ["avgGrade"],
@@ -43,7 +43,7 @@ const {
 });
 const {
     data: completedOrders,
-    isPending: completedOrdersPending,
+    isLoading: completedOrdersPending,
     error: completedOrdersError,
 } = useQuery({
     queryKey: ["completedOrders"],
@@ -51,7 +51,7 @@ const {
 });
 const {
     data: latestStatusUpdates,
-    isPending: latestStatusUpdatesPending,
+    isLoading: latestStatusUpdatesPending,
     error: latestStatusUpdatesError,
 } = useQuery({
     queryKey: ["latestStatusUpdates"],

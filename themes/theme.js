@@ -1,4 +1,3 @@
-import { dark } from '@clerk/themes';
 import { definePreset } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 

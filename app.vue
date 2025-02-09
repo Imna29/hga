@@ -3,11 +3,8 @@
 
 <template>
     <NuxtLayout>
-        <ClerkLoaded>
-            <NuxtPage />
-        </ClerkLoaded>
+        <NuxtPage />
     </NuxtLayout>
 </template>
 
-<style>
-</style>
+<style></style>

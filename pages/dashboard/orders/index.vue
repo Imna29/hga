@@ -11,7 +11,7 @@ definePageMeta({
 const ordersStore = useOrdersStore();
 const expandedRows = ref({});
 const {
-    isPending: isOrdersPending,
+    isLoading: isOrdersPending,
     data: orders,
     error,
 } = useQuery({

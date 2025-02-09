@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PricingTable from "~/components/PricingTable.vue";
 
 const certNumber = ref("");
 </script>
@@ -27,7 +26,7 @@ const certNumber = ref("");
         </div>
         <div class="w-1/2 mx-auto text-center">
             <p class="text-2xl mt-8">
-                HAN, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to the
+                HFA, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to the
                 minifigure collecting community. Enhance your collection by having your figures authenticated,
                 graded, and preserved in our custom-designed acrylic cases, serving as both protection and a
                 stunning display for your prized collection.
@@ -53,7 +52,7 @@ const certNumber = ref("");
         </div>
         <div class="w-1/2  text-center mx-auto mt-32">
             <div class="text-5xl font-bold">Our Socials</div>
-            <div class="text-lg mt-2">Check out our socials and stay up to date on everything HAN!
+            <div class="text-lg mt-2">Check out our socials and stay up to date on everything HFA!
             </div>
             <div class="mt-4 flex justify-center gap-8">
                 <div>

@@ -56,7 +56,7 @@ function toggleColorMode() {
                 <template #start>
                     <div class="dark:text-color text-black flex items-center">
                         <NuxtLink to="/" class="font-mono text-4xl logo mr-5">
-                            HAN
+                            HFA
                         </NuxtLink>
                     </div>
                 </template>
@@ -83,12 +83,12 @@ function toggleColorMode() {
             <slot />
             <div class="mt-16 pb-4 flex">
                 <NuxtLink to="/" class="font-mono text-4xl logo mr-5">
-                    HAN
+                    HFA
                 </NuxtLink>
 
 
                 <div class="ml-auto">
-                    HANfigs@gmail.com
+                    HFAfigs@gmail.com
 
                     |
 

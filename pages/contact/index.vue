@@ -69,7 +69,7 @@ const faqs = ref([
       Contact Us
     </div>
     <div class="text-center mt-10 w-3/4 mx-auto text-lg font-sem">
-      Reach out with any HAN questions, we're here to help. 
+      Reach out with any HFA questions, we're here to help. 
     </div>
     <div class="mt-10 md:w-1/2 w-full mx-auto flex flex-col gap-8">
       <div class="grid grid-cols-2 gap-4">

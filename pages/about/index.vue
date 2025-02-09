@@ -16,7 +16,7 @@ const events = ref([
       About Us
     </div>
     <div class="text-center mt-10 w-3/4 mx-auto text-lg font-sem">
-      We are HAN, the world's leading experts in LEGO® minifigure grading. Born out of a passion for collecting,
+      We are HFA, the world's leading experts in LEGO® minifigure grading. Born out of a passion for collecting,
       we bring a thrilling new dimension to the minifigure community. Our mission is simple: to enhance your
       collection by providing top-notch authentication, grading, and preservation services, all showcased 
       in our custom-designed acrylic cases. These cases not only protect your prized figures but
