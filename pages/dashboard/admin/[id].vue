@@ -49,8 +49,9 @@ const { error: statusError, mutate: mutateOrderStatus, reset, isPending: isStatu
 
 const statusUpdateTitle = ref('');
 const statusUpdateBody = ref('');
+const trackingCode = ref('');
 const { error: statusUpdateError, mutate: mutateStatusUpdate, reset: resetStatusUpdate, isPending: isStatusUpdateAdding } = useMutation({
-    mutationFn: ({ title, body }: { title: string, body: string }) => adminStore.adminRepo.addStatusUpdate(id as string, title, body),
+    mutationFn: ({ title, body }: { title: string, body: string }) => adminStore.adminRepo.addStatusUpdate(id as string, title, body, trackingCode.value),
     onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ['orders', 'admin', id] });
         statusUpdateTitle.value = '';
@@ -114,6 +115,11 @@ const confirmGradeUpdate = (event: any, index:number) => {
 watch(
     () => order.value?.pieces,
     (pieces) => {
+        const latestStatusUpdate = order.value?.statusTracking && order.value.statusTracking.length > 0 
+            ? order.value.statusTracking[0] 
+            : null;
+        trackingCode.value = latestStatusUpdate?.trackingCode || '';
+        console.log(latestStatusUpdate);
         if (pieces) {
             for (let i = 0; i < pieces.length; i++) {
                 selectedGrades.value[i] = pieces[i].grade || 1;
@@ -254,6 +260,9 @@ watch(
                         </div>
                         <div>
                             <Textarea v-model="statusUpdateBody" placeholder="Description" />
+                        </div>
+                        <div>
+                            <Textarea v-model="trackingCode" placeholder="Tracking Code" />
                         </div>
                         <div class="flex gap-2">
                             <div>

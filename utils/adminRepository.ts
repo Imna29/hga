@@ -32,7 +32,7 @@ export const adminRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
       body: JSON.stringify({ status })
     });
   },
-  async addStatusUpdate(orderId: string, status: string, description: string) {
+  async addStatusUpdate(orderId: string, status: string, description: string, trackingCode: string) {
     if(!status) {
       throw new Error("Title is required");
     }
@@ -43,7 +43,7 @@ export const adminRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
 
     return fetch<Order>(`/admin/orders/${orderId}/status-update`, {
       method: "POST",
-      body: JSON.stringify({ status, description })
+      body: JSON.stringify({ status, description, trackingCode })
     });
   },
   async updatePieceGrade(id: string, grade: number, isPristine: boolean) {

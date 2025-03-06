@@ -141,6 +141,7 @@ async function createCheckoutSession(orderId: string) {
             <template #content="slotProps">
               <div class="flex flex-col">
                 <div class="font-bold">{{ slotProps.item.status }}</div>
+                <div v-if="slotProps.item.trackingCode">Tracking Code: {{ slotProps.item.trackingCode }}</div>
                 <div>{{ slotProps.item.description }}</div>
               </div>
             </template>

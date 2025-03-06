@@ -207,7 +207,8 @@ const images = computed(() => {
                                 {{ status.status }}
                             </template>
                             <template #subtitle>
-                                Order #{{ status.order?.public_id }}
+                                <div>Order #{{ status.order?.public_id }}</div>
+                                <div v-if="status.trackingCode">Tracking Code: {{ status.trackingCode }}</div>
                             </template>
                             <template #content>
                                 <p class="text-md">{{ status.description }}</p>

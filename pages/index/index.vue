@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Flame } from 'lucide-vue-next';
+import { Gift } from 'lucide-vue-next';
 
 const certNumber = ref("");
 </script>
@@ -8,19 +10,33 @@ const certNumber = ref("");
             <div>
                 <img src="/case.png" alt="hero" class="object-cover h-full w-full" />
             </div>
-            <div class="mt-20 pr-20">
+            <div class="mt-20 pr-10">
                 <h1 class="text-6xl font-bold text-right">
-                    Immortalize
-                    Perfection.
+                    Immortalize Perfection.
                 </h1>
-                <h2 class="text-2xl font-bold mt-4 text-right">
+                <h2 class="text-4xl font-bold mt-4 text-right">
                     Elevate your collection!
                 </h2>
 
-                <div class="ml-auto w-fit">
-                    <Button class="mt-4 font-semibold" size="large">
-                        <span class="text-xl">Start Now!</span>
-                    </Button>
+                <div class="ml-auto w-fit flex gap-2">
+                    <button class="mt-4 py-3 px-4 rounded-full font-medium !bg-[#0A7CFF]" size="large">
+                        <span class="text-xl flex gap-2">
+                            <Flame class="fill-white" />
+                            Start Now
+                        </span>
+                    </button>
+                    <button class="mt-4 py-3 px-4 rounded-full font-medium flex gap-2 text-xl" size="large" style="
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+                radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.06) inset,
+                1px 1px 0px 0px rgba(255, 255, 255, 0.08) inset,
+                0px 8px 40px -20px rgba(255, 255, 255, 0.2);
+  ">
+                        <span class="flex gap-2">
+                            <Gift class="text-[#1F87FF]"/>
+                            Try Demo
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
