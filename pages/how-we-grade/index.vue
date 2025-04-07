@@ -22,9 +22,9 @@ const scales: {
             description: "Figure has major damage",
             features: [
                 "Major yellowing",
-                "Large cracks (torso, legs, arms)",
+                "Large crack(s) (torso, legs, arms)",
                 "Dents / scratches",
-                "Stained",
+                "Stains",
             ],
         },
         {
@@ -33,9 +33,9 @@ const scales: {
             description: "Figure has moderate damage",
             features: [
                 "Moderate yellowing",
-                "Moderate cracking (legs, arms)",
-                "Dents / scratched",
-                "Stained",
+                "Crack(s) (torso, legs, arms)",
+                "Dents / scratches",
+                "Stains",
             ],
         },
         {
@@ -44,17 +44,17 @@ const scales: {
             description: "Figure has minor damage",
             features: [
                 "Minor yellowing",
-                "Minor cracking (legs)",
+                "Minor crack(s) (legs, arms)",
                 "Minor dents / scratches",
-                "Damaged print",
+                "print damage",
             ],
         },
         {
             grade: "4",
             title: "Poor",
-            description: "Figure has many defects",
+            description: "Figure has defects",
             features: [
-                "Damaged print",
+                "Print damage",
                 "Hairline fractures",
                 "Dents / Scratches",
                 "Marks",
@@ -75,19 +75,19 @@ const scales: {
         {
             grade: "7",
             title: "Excellent",
-            description: "Figure is in excellent condition with 3 flaws",
+            description: "Figure is in excellent condition with ≤ 3 imperfections",
             features: [
                 "Minorly damaged print",
-                "No swing wear",
+                "swing wear",
                 "Very minor scratches",
             ],
         },
         {
             grade: "8",
             title: "Near MT",
-            description: "Figure is in great condition with 2 flaws",
+            description: "Figure is in great condition with ≤ 2 imperfections",
             features: [
-                "No swing wear",
+                "swing wear",
                 "Micro scratches",
                 "Very few to no superficial marks",
             ],
@@ -95,7 +95,7 @@ const scales: {
         {
             grade: "9",
             title: "Mint",
-            description: "Figure is almost perfect with 1 flaw",
+            description: "Figure is almost perfect with ≤ 1 imperfection",
             features: ["Little swing wear", "Few micro scratches"],
         },
         {
@@ -110,6 +110,7 @@ const scales: {
             description: "Figure is flawless",
             features: [
                 "New / appears new",
+                "Perfect printing",
                 "No swing wear",
                 "No scratches",
                 "No micro marks",
