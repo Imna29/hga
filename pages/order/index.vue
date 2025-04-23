@@ -5,26 +5,34 @@ import { z } from "zod";
 definePageMeta({
     title: "Place an Order",
 })
-
+enum ServiceType {
+    VALUE = "VALUE",
+    CORE = "CORE",
+    BULK = "BULK",
+    PLUS = "PLUS",
+    PREMIUM = "PREMIUM",
+    ULTIMATE = "ULTIMATE",
+}
 const ordersStore = useOrdersStore();
 const uploading = ref<boolean>(false);
 
 const createOrderSchema = z.object({
-    type: z.enum(["ECONOMY", "CORE", "BULK"]),
+    type: z.nativeEnum(ServiceType),
     quantity: z.number().min(1).max(50),
     items: z.array(z.object({
         name: z.string().min(1, { message: "Name is required for all figures." }),
         description: z.string().optional(),
         files: z.array(z.any()).min(1, { message: "At least one image is required for each figure." }).max(5, { message: "Maximum of 5 images allowed for each figure." }),
+        declaredValue: z.number().min(1, { message: "Declared value must be greater than 0." }),
     })).min(1).max(50),
 });
 
 const user = useUser();
 const route = useRoute();
-let initType: 'ECONOMY' | 'CORE' | 'BULK' = 'ECONOMY';
+let initType: ServiceType = ServiceType.CORE;
 if (route.query.type) {
-    if (["economy", "core", "bulk"].includes(route.query.type as string)) {
-        initType = route.query.type.toString().toUpperCase() as 'ECONOMY' | 'CORE' | 'BULK';
+    if (Object.values(ServiceType).includes(route.query.type as ServiceType)) {
+        initType = route.query.type.toString().toUpperCase() as ServiceType;
     }
 }
 
@@ -33,7 +41,7 @@ const { handleSubmit, defineField, errors, setFieldValue } = useForm({
     initialValues: {
         type: initType,
         quantity: initType === "BULK" ? 5 : 1,
-        items: Array.from({ length: initType === "BULK" ? 5 : 1 }, () => ({ name: "", description: "", files: [] })),
+        items: Array.from({ length: initType === "BULK" ? 5 : 1 }, () => ({ name: "", description: "", files: [], declaredValue: 0 })),
     },
 });
 
@@ -46,7 +54,7 @@ watch(quantity, (newQuantity, oldQuantity) => {
     if (newQuantity === undefined || items.value === undefined) return;
     if (newQuantity > (oldQuantity ?? 0)) {
         while (items.value.length < newQuantity) {
-            items.value.push({ name: "", description: "", files: [] });
+            items.value.push({ name: "", description: "", files: [], declaredValue: 0 });
         }
     } else {
         items.value.splice(newQuantity);
@@ -80,6 +88,9 @@ const submit = handleSubmit(async (values) => {
             formData.append("description", item.description);
         }
 
+        // Convert declaredValue to cents
+        formData.append("declaredValue", (item.declaredValue * 100).toString());
+
         for (let i = 0; i < itemFiles.length; i++) {
             formData.append("images", itemFiles[i]);
         }
@@ -96,9 +107,12 @@ const submit = handleSubmit(async (values) => {
 });
 
 const prices = {
-    ECONOMY: 24.75,
-    CORE: 29.75,
-    BULK: 19.75,
+    VALUE: 29.99,
+    CORE: 34.99,
+    BULK: 24.99,
+    PLUS: 44.99,
+    PREMIUM: 69.99,
+    ULTIMATE: 84.99,
 };
 
 const minimumQuantity = computed(() => {
@@ -119,7 +133,7 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
     <div>
         <SignedIn>
             <h1 class="text-5xl font-bold text-center mt-4">Place an Order</h1>
-            <div class="grid md:grid-cols-2 grid-cols-1 mt-4">
+            <div class="grid md:grid-cols-2 grid-cols-1 mt-4" v-if="user.user.value">
                 <div class="col-span-1">
                     <Stepper value="1" linear>
                         <StepList>
@@ -152,9 +166,12 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
                                         <label for="type" class="text-lg">Service Type</label>
                                         <Select v-model="type" class="w-1/2" id="type"
                                             :invalid="errors.type !== undefined" :options="[
-                                                { label: 'Economy', value: 'ECONOMY' },
+                                                { label: 'Value', value: 'VALUE' },
                                                 { label: 'Core', value: 'CORE' },
-                                                { label: 'Bulk', value: 'BULK' }
+                                                { label: 'Bulk', value: 'BULK' },
+                                                { label: 'Plus', value: 'PLUS' },
+                                                { label: 'Premium', value: 'PREMIUM' },
+                                                { label: 'Ultimate', value: 'ULTIMATE' }
                                             ]" optionLabel="label" optionValue="value">
                                         </Select>
                                         <label for="quantity" class="text-lg">Number of figures</label>
@@ -189,6 +206,13 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
                                                             placeholder="Enter description" />
 
                                                     </div>
+                                                    <div class="flex flex-col gap-2">
+                                                        <label for="description" class="text-lg">Declared Value</label>
+
+                                                        <InputNumber v-model="item.declaredValue" inputId="integeronly"
+                                                            fluid />
+
+                                                    </div>
                                                     <div class="">
                                                         <FileUpload :custom-upload="true" :auto="false"
                                                             @select="onFileSelect(index, $event)"
@@ -203,7 +227,7 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
                                             {{ errors.items }}
                                         </Message>
                                         <div class="mt-2 w-full text-end text-lg font-semibold">
-                                            Total: ${{ quantity! * prices[type!] }}
+                                            Total (Without fees): ${{ quantity! * prices[type!] }}
                                         </div>
                                     </BlockUI>
                                 </div>

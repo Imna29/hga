@@ -1,63 +1,78 @@
 <template>
-    <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
-        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
-            <div class="text-3xl font-bold">
-                Economy
-            </div>
-            <div class="text-lg">
-                Grade up to 4 figures for less with a longer turnaround time.
-            </div>
-            <div class="text-5xl">
-                $24.75
-            </div>
-            <div class="flex justify-center flex-nowrap mt-auto">
-                <img src="/economy.png" class="w-1/3" alt="Economy">
-            </div>
-            <div class="mt-auto">
-                <Button @click="navigateTo('/order?type=economy')"><span class="text-xl">Submit</span></Button>
-            </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto py-8">
+    <div v-for="(tier, i) in tiers" :key="tier.name"
+      class="rounded-2xl p-6 flex flex-col items-center  bg-white bg-opacity-10 border-gray-500 border-2">
+      <div class="text-2xl font-bold mb-2">{{ tier.name }}</div>
+      <div class="text-3xl font-semibold mb-1">${{ tier.price }}<span class="text-base font-normal">/ea</span></div>
+      <div class="flex justify-center items-end gap-2 my-4 min-h-[140px] h-full">
+        <div class="flex flex-row h-full items-center mt-auto">
+          <img v-for="i in Array(tier.figures)" :key="i" class="w-full" src="/economy.png" alt="Minifigure" />
         </div>
-
-
-        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
-            <div class="text-3xl font-bold">
-                Core
-            </div>
-            <div class="text-lg">
-                Grade up to 4 figures with our core service
-            </div>
-            <div class="text-5xl">
-                $29.75
-            </div>
-            <div class="flex justify-center flex-nowrap mt-auto">
-                <img src="/economy.png" class="w-1/3" alt="Economy">
-            </div>
-            <div class="">
-                <Button @click="navigateTo('/order?type=core')"><span class="text-xl">Submit</span></Button>
-            </div>
-        </div>
-
-        <div class="dark:bg-surface-800 bg-surface-100 p-4 h-full flex flex-col gap-4 rounded-2xl">
-            <div class="text-3xl font-bold">
-                Bulk
-            </div>
-            <div class="text-lg">
-                Grade 5 or more figures at once and save on each
-            </div>
-            <div class="text-5xl ">
-                $19.75
-            </div>
-            <div class="flex justify-center mt-auto  flex-nowrap">
-                <img src="/economy.png" class="w-1/3" alt="Economy">
-                <img src="/economy.png" class="w-1/3" alt="Economy">
-                <img src="/economy.png" class="w-1/3" alt="Economy">
-            </div>
-            <div class="">
-                <Button @click="navigateTo('/order?type=bulk')"><span class="text-xl">Submit</span></Button>
-            </div>
-        </div>
+      </div>
+      <button v-if="tier.membersOnly"
+        class="w-full py-2 rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold text-lg cursor-not-allowed opacity-80"
+        disabled>
+        Members Only
+      </button>
+      <button v-else
+        class="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg transition"
+        @click="navigateTo(tier.link)">
+        Submit
+      </button>
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-2xl text-blue-400">
+        <span>&#8964;</span>
+      </div>
     </div>
+  </div>
 </template>
-<script>
 
+<script setup>
+const tiers = [
+  {
+    name: "Bulk",
+    price: "24.99",
+    figures: 3,
+    membersOnly: true,
+    link: "/order?type=BULK",
+  },
+  {
+    name: "Value",
+    price: "29.99",
+    figures: 1,
+    membersOnly: false,
+    link: "/order?type=VALUE",
+  },
+  {
+    name: "Core",
+    price: "34.99",
+    figures: 1,
+    membersOnly: false,
+    link: "/order?type=CORE",
+  },
+  {
+    name: "Plus",
+    price: "44.99",
+    figures: 1,
+    membersOnly: false,
+    link: "/order?type=PLUS",
+  },
+  {
+    name: "Premium",
+    price: "64.99",
+    figures: 1,
+    membersOnly: false,
+    link: "/order?type=PREMIUM",
+  },
+  {
+    name: "Ultimate",
+    price: "84.99",
+    figures: 1,
+    membersOnly: false,
+    link: "/order?type=ULTIMATE",
+  },
+];
+
+function navigateTo(link) {
+  useRouter().push(link);
+}
 </script>

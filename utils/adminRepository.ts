@@ -33,11 +33,11 @@ export const adminRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
     });
   },
   async addStatusUpdate(orderId: string, status: string, description: string, trackingCode: string) {
-    if(!status) {
+    if (!status) {
       throw new Error("Title is required");
     }
 
-    if(!description) {
+    if (!description) {
       throw new Error("Description is required");
     }
 
@@ -50,6 +50,12 @@ export const adminRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
     return fetch<Piece>(`/admin/figures/${id}/grade`, {
       method: "PATCH",
       body: JSON.stringify({ grade, isPristine })
+    });
+  },
+  async updatePieceCertificate(id: string, data: FormData) {
+    return fetch<Order>("/admin/figures/" + id + "/certificate", {
+      method: "POST",
+      body: data,
     });
   }
 });

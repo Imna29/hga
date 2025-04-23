@@ -33,24 +33,52 @@ const certNumber = ref("");
                 0px 8px 40px -20px rgba(255, 255, 255, 0.2);
   ">
                         <span class="flex gap-2">
-                            <Gift class="text-[#1F87FF]"/>
+                            <Gift class="text-[#1F87FF]" />
                             Try Demo
                         </span>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="w-1/2 mx-auto text-center">
-            <p class="text-2xl mt-8">
-                HFA, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to the
-                minifigure collecting community. Enhance your collection by having your figures authenticated,
-                graded, and preserved in our custom-designed acrylic cases, serving as both protection and a
-                stunning display for your prized collection.
-            </p>
-        </div>
-        <div class="flex justify-center mt-96">
-            <div class="w-3/4  text-center dark:bg-surface-800 bg-surface-100 py-24 bg-opacity-80 rounded-xl">
-                <div class="text-5xl">Cert Number Lookup</div>
+        <div class="grid gap-24 relative">
+           
+            <div class="grid md:w-7/12 w-3/4 md:grid-cols-2 grid-cols-1 mx-auto md:gap-24 gap-8 mt-32">
+                <div class="flex flex-col gap-4  text-center bg-white p-4 bg-opacity-10 rounded-2xl border-gray-500 border-2">
+                    <div class="text-5xl font-semibold leading-normal">
+                        Who Are We?
+                    </div>
+                    <div class="text-lg">
+                        HFA, the world’s leading experts in minifigure grading, introduce a thrilling new dimension to
+                        the minifigure collecting community. Enhance your collection by having your figures
+                        authenticated, graded, and preserved in our custom-designed acrylic cases, serving as both
+                        protection and a stunning display for your prized collection.
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 bg-white p-4 bg-opacity-10 rounded-2xl border-gray-500 border-2">
+                    <div class="text-5xl font-semibold leading-normal text-center">
+                        How It Works
+                    </div>
+                    <div class="text-lg px-4">
+                        <div class="mx-auto w-fit">
+                            <ul class="list-disc mx-auto">
+                                <li>Submit your figure(s) by shipping them to HFA for grading </li>
+                                <li>Track the status of your submission through the HFA dashboard to see what step it's
+                                    on
+                                    and
+                                    when it’s headed back to you</li>
+                                <li>
+                                    Enjoy your returned submission in their brand new graded cases
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="">
+                        For more help, visit the FAQ
+                    </div>
+                </div>
+            </div>
+            <div class="w-3/4 mx-auto  text-center bg-white py-24 bg-opacity-10 rounded-xl border-gray-500 border-2">
+                <div class="text-5xl font-semibold">Cert Number Lookup</div>
                 <div class="text-2xl mt-4">Enter cert number found on graded case to view extra Information on your
                     item
                 </div>
@@ -61,7 +89,10 @@ const certNumber = ref("");
                 </IconField>
             </div>
         </div>
-        <div class="mt-48 text-center">
+        <div class="flex justify-center mt-24">
+
+        </div>
+        <div class="mt-24 text-center">
             <h1 class="text-5xl font-bold">Start Now!</h1>
             <h3 class="text-lg  mt-4">Start your submission today to elevate your collection!</h3>
             <PricingTable class="mt-4" />
@@ -88,3 +119,17 @@ const certNumber = ref("");
 
     </div>
 </template>
+
+<style scoped>
+.gradient-bg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle at center,
+            rgba(0, 123, 255, 0.4) 0%,
+            rgba(0, 123, 255, 0.2) 40%,
+            rgba(0, 123, 255, 0) 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+</style>

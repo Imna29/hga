@@ -5,7 +5,7 @@ import type StatusTracking from "~/models/StatusTracking";
 
 export const ordersRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
 	async createOrder(order: {
-		type: "ECONOMY" | "CORE" | "BULK";
+		type: string;
 		quantity: number;
 	}) {
 		return fetch<Order>("/orders", {

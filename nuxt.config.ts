@@ -31,7 +31,10 @@ export default defineNuxtConfig({
        
     },
     primevue: {
-        importTheme: {from: '~/themes/theme.js'}
+        importTheme: {from: '~/themes/theme.js'},
+        components: {
+            exclude: ['Form', 'FormField']
+        }
     },
 
     css: ["primeicons/primeicons.css"],

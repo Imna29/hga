@@ -42,10 +42,16 @@ function navigateTo(path: string) {
 </script>
 
 <template>
-  <div class="background dark:bg-black relative z-0">
+  <div class="background dark:bg-black relative z-0 overflow-hidden">
     <!-- Background gradient image -->
     <div class="absolute -z-10">
       <img src="/gradient.png" alt="Gradient Background" />
+    </div>
+    <div class="absolute -z-10 ">
+      <img src="/gradient-2.png" class="w-fit object-contain opacity-60" alt="Gradient Background" />
+    </div>
+    <div class="absolute -z-10 ">
+      <img src="/gradient-3.png" class="w-fit object-contain opacity-60" alt="Gradient Background" />
     </div>
 
     <!-- Background stars image -->

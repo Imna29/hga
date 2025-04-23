@@ -81,7 +81,7 @@ const confirmStatusUpdateAdd = (event: any) => {
 const pristines = ref<number[]>([]);
 const selectedGrades = ref<number[]>([]);
 const { error: gradeUpdateError, mutate: mutateGradeUpdate, reset: resetGradeUpdate, isPending: isGradeUpdating } = useMutation({
-    mutationFn: (index:number) =>{
+    mutationFn: (index: number) => {
         const isPristine = pristines.value.includes(index);
         return adminStore.adminRepo.updatePieceGrade(order.value?.pieces![index].id!, selectedGrades.value[index], isPristine)
     },
@@ -90,7 +90,7 @@ const { error: gradeUpdateError, mutate: mutateGradeUpdate, reset: resetGradeUpd
     }
 })
 
-const confirmGradeUpdate = (event: any, index:number) => {
+const confirmGradeUpdate = (event: any, index: number) => {
     confirm.require({
         target: event.currentTarget,
         message: 'Are you sure you want to update the grade?',
@@ -109,14 +109,20 @@ const confirmGradeUpdate = (event: any, index:number) => {
     });
 }
 
+const fileupload = ref();
+const upload = () => {
+    fileupload.value[0].upload();
+};
 
-
+const onUpload = () => {
+    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+};
 
 watch(
     () => order.value?.pieces,
     (pieces) => {
-        const latestStatusUpdate = order.value?.statusTracking && order.value.statusTracking.length > 0 
-            ? order.value.statusTracking[0] 
+        const latestStatusUpdate = order.value?.statusTracking && order.value.statusTracking.length > 0
+            ? order.value.statusTracking[0]
             : null;
         trackingCode.value = latestStatusUpdate?.trackingCode || '';
         console.log(latestStatusUpdate);
@@ -320,7 +326,7 @@ watch(
                                                     {{ item.description }}
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="flex flex-row gap-4 mb-4">
@@ -334,8 +340,12 @@ watch(
                                             </Checkbox>
                                         </div>
                                         <div>
-                                            <Button label="Update Grade" @click="confirmGradeUpdate($event, index)"></Button>
+                                            <Button label="Update Grade"
+                                                @click="confirmGradeUpdate($event, index)"></Button>
                                         </div>
+                                        <FileUpload ref="fileupload" mode="basic" name="certificate" :url="`/api/admin/figures/${item.id}/certificate`"
+                                            accept="application/pdf,application/vnd.ms-excel" :maxFileSize="1000000" @upload="onUpload" />
+                                        <Button label="Upload" @click="upload" severity="primary" />
                                     </div>
                                 </div>
                             </div>
