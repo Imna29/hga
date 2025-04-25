@@ -36,7 +36,9 @@ const signOut = async () => {
                     <div class="grid grid-cols-12">
                         <div class="col-span-2 dark:bg-surface-800 bg-surface-100 rounded-xl p-4 md:block hidden h-fit">
                             <div class="flex justify-between">
-                                <div class="logo text-5xl p-2">HFA</div>
+                                <div class="logo text-5xl p-2"> <img src="/hfa_logo.png" alt="Logo"
+                                        class="h-12 w-auto inline-block mr-2" />
+                                </div>
                                 <div class="">
                                     <NuxtLink to="/">
                                         <i class="pi pi-home p-2 hover:bg-surface-300 rounded-xl cursor-pointer" />

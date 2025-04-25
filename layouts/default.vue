@@ -65,7 +65,7 @@ function navigateTo(path: string) {
         <!-- Left: Logo -->
         <div>
           <NuxtLink to="/" class="font-mono text-4xl logo">
-            HFA
+            <img src="/hfa_logo.png" alt="Logo" class="h-12 w-auto inline-block mr-2" />
           </NuxtLink>
         </div>
 
@@ -110,7 +110,7 @@ function navigateTo(path: string) {
               Dashboard
             </button>
           </SignedIn>
-          <button class="sign-in-btn" @click="navigateTo('/sign-in')">
+          <button class="sign-in-btn" @click="navigateTo('/order')">
             Start Now
           </button>
         </div>

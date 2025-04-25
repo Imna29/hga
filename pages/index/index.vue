@@ -8,7 +8,7 @@ const certNumber = ref("");
     <div>
         <div class="w-full md:grid grid-cols-2 h-[500px]">
             <div>
-                <img src="/case.png" alt="hero" class="object-cover h-full w-full" />
+                <img src="/case_new.svg" alt="hero" class="object-cover h-full w-full" />
             </div>
             <div class="mt-20 pr-10">
                 <h1 class="text-6xl font-bold text-right">
@@ -19,31 +19,21 @@ const certNumber = ref("");
                 </h2>
 
                 <div class="ml-auto w-fit flex gap-2">
-                    <button class="mt-4 py-3 px-4 rounded-full font-medium !bg-[#0A7CFF]" size="large">
+                    <button class="mt-4 py-3 px-4 rounded-full font-medium !bg-[#0A7CFF]" size="large"
+                        @click="navigateTo('/order')">
                         <span class="text-xl flex gap-2">
                             <Flame class="fill-white" />
                             Start Now
-                        </span>
-                    </button>
-                    <button class="mt-4 py-3 px-4 rounded-full font-medium flex gap-2 text-xl" size="large" style="
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
-                radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
-    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.06) inset,
-                1px 1px 0px 0px rgba(255, 255, 255, 0.08) inset,
-                0px 8px 40px -20px rgba(255, 255, 255, 0.2);
-  ">
-                        <span class="flex gap-2">
-                            <Gift class="text-[#1F87FF]" />
-                            Try Demo
                         </span>
                     </button>
                 </div>
             </div>
         </div>
         <div class="grid gap-24 relative">
-           
+
             <div class="grid md:w-7/12 w-3/4 md:grid-cols-2 grid-cols-1 mx-auto md:gap-24 gap-8 mt-32">
-                <div class="flex flex-col gap-4  text-center bg-white p-4 bg-opacity-10 rounded-2xl border-gray-500 border-2">
+                <div
+                    class="flex flex-col gap-4  text-center bg-white p-4 bg-opacity-10 rounded-2xl border-gray-500 border-2">
                     <div class="text-5xl font-semibold leading-normal">
                         Who Are We?
                     </div>
@@ -89,8 +79,39 @@ const certNumber = ref("");
                 </IconField>
             </div>
         </div>
-        <div class="flex justify-center mt-24">
-
+        <div class="flex flex-col justify-center items-center mt-24 gap-12">
+            <div class="text-5xl font-bold">
+                Why HFA
+            </div>
+            <div class="grid md:grid-cols-3 grid-cols-1">
+                <div class="grid gap-10 w-full md:w-10/12 mx-auto text-center">
+                    <div class="text-3xl font-semibold">
+                        Collectability
+                    </div>
+                    <div class="text-lg">
+                        Grading your figure(s) with HFA adds a level of collectability and desirability based on their
+                        received grade, especially that <span class="font-bold">pristine 10</span>
+                    </div>
+                </div>
+                <div class="grid gap-10 w-full md:w-10/12 mx-auto text-center">
+                    <div class="text-3xl font-semibold">
+                        Security
+                    </div>
+                    <div class="text-lg">
+                        Our cases and authenticity guarantees offer new layers of physical protection and piece of mind
+                        to know your figures are the real deal
+                    </div>
+                </div>
+                <div class="grid gap-10 w-full md:w-10/12 mx-auto text-center">
+                    <div class="text-3xl font-semibold">
+                        Value
+                    </div>
+                    <div class="text-lg">
+                        Increased collectability, security, and every aspect of these factors contribute to the
+                        intrinsic value of your prized figure(s), enhancing their desirability and value
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="mt-24 text-center">
             <h1 class="text-5xl font-bold">Start Now!</h1>
@@ -105,12 +126,16 @@ const certNumber = ref("");
                 <div>
                     <i class="pi pi-facebook text-6xl text-blue-500" style="font-size: 3.75rem !important;"></i>
                 </div>
-                <div>
-                    <i class="pi pi-twitter text-6xl dark:text-white" style="font-size: 3.75rem !important;"></i>
-                </div>
-                <div>
-                    <i class="pi pi-instagram text-6xl text-pink-500" style="font-size: 3.75rem !important;"></i>
-                </div>
+                <a href="https://x.com/hfagrading" target="_blank" rel="noopener noreferrer">
+                    <div>
+                        <i class="pi pi-twitter text-6xl dark:text-white" style="font-size: 3.75rem !important;"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/hfagrading/" target="_blank" rel="noopener noreferrer">
+                    <div>
+                        <i class="pi pi-instagram text-6xl text-pink-500" style="font-size: 3.75rem !important;"></i>
+                    </div>
+                </a>
                 <div>
                     <i class="pi pi-youtube text-6xl text-red-700" style="font-size: 3.75rem !important; "></i>
                 </div>
