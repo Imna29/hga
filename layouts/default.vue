@@ -139,15 +139,6 @@ function navigateTo(path: string) {
   letter-spacing: 0.1em;
 }
 
-.light-mode .background {
-  background-image: linear-gradient(rgba(246, 245, 236, 0.9),
-      rgba(246, 245, 236, 0.9)),
-    url("/public/background4.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .sign-in-btn {
   border: 2px solid #007bff;
   border-radius: 2rem;

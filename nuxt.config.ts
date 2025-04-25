@@ -28,7 +28,11 @@ export default defineNuxtConfig({
         }
     },
     app: {
-       
+       head:{
+        htmlAttrs:{
+            class: 'dark-mode'
+        }
+       }
     },
     primevue: {
         importTheme: {from: '~/themes/theme.js'},
