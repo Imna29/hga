@@ -125,7 +125,7 @@ function navigateTo(path: string) {
           HFA
         </NuxtLink>
         <div class="ml-auto">
-          HFAfigs@gmail.com | +1 (475) 251-3265 | © 2024 HexqoLLC All rights
+          contact@hfagrading.com | +1 (307) 312-1145 | Hexqo Grading Authority LLC
           reserved.
         </div>
       </div>
