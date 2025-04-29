@@ -102,7 +102,7 @@ const submit = handleSubmit(async (values) => {
 
     const stripe_url = await ordersStore.ordersRepo.createCheckoutSession(orderResult.id);
     //navigate to stripe checkout url in new tab
-    window.open(stripe_url, "_blank");
+    window.open(stripe_url);
     uploading.value = false;
 });
 
