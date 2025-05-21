@@ -23,6 +23,7 @@ export default defineNuxtConfig({
 
     routeRules: {
         '/dashboard/**': {ssr: false},
+        '/certificate/**': {ssr: false},
         '/api/**': {
             proxy: process.env.NUXT_PUBLIC_API_BASE_URL + "/**"
         }
