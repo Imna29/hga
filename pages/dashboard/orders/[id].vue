@@ -38,10 +38,39 @@ const {
   queryFn: () => ordersStore.ordersRepo.getPieces(orderId),
 });
 
+const confirm = useConfirm();
+
 async function createCheckoutSession(orderId: string) {
   const stripe_url =
     await ordersStore.ordersRepo.createCheckoutSession(orderId);
   window.open(stripe_url, "_blank");
+}
+
+const confirmDeleteOrder = (event: any) => {
+  confirm.require({
+    target: event.currentTarget,
+    message: 'Are you sure you want to delete this order? This action cannot be undone.',
+    icon: 'pi pi-exclamation-triangle',
+    rejectProps: {
+      label: 'Cancel',
+      severity: 'secondary',
+      outlined: true
+    },
+    acceptProps: {
+      label: 'Delete',
+      severity: 'danger',
+    },
+    accept: async () => {
+      try {
+        await ordersStore.ordersRepo.deleteOrder(orderId);
+        // Navigate back to orders list
+        await navigateTo('/dashboard/orders');
+      } catch (error) {
+        console.error('Error deleting order:', error);
+        // You might want to show a toast notification here
+      }
+    },
+  });
 }
 </script>
 
@@ -72,6 +101,14 @@ async function createCheckoutSession(orderId: string) {
           </Tag>
           <Button v-if="order.status === 'PENDING_PAYMENT'" @click="createCheckoutSession(order.id)">
             Pay Now
+          </Button>
+          <Button 
+            v-if="order.status === 'PENDING_PAYMENT' && (!order.payment || order.payment.status === 'UNPAID')" 
+            severity="danger" 
+            @click="confirmDeleteOrder($event)"
+            class="ml-2"
+          >
+            Delete Order
           </Button>
         </div>
       </div>
@@ -153,7 +190,7 @@ async function createCheckoutSession(orderId: string) {
       <Card v-if="orderPieces?.length">
         <template #title>Order Pieces</template>
         <template #content>
-          <DataView :value="orderPieces as Piece[]" v-if="orderPieces !== undefined && orderPieces?.length > 0">
+          <DataView :value="orderPieces as Piece[]" dataKey="id" v-if="orderPieces !== undefined && orderPieces?.length > 0">
             <template #list="slotProps">
               <div class="flex flex-col">
                 <div v-for="(item, index) in slotProps.items" :key="index">

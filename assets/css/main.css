@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import "tw-animate-css";
+
+@theme inline {
+  --animate-glow: glow var(--duration) infinite linear;
+  @keyframes glow {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
+  }
+}
+
+
+@theme inline {
+    --animate-neon-border: neon-border var(--neon-border-duration) linear infinite;
+    @keyframes neon-border {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  

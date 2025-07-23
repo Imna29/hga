@@ -14,6 +14,7 @@ const {
     isLoading: isOrdersPending,
     data: orders,
     error,
+    refetch: refetchOrders,
 } = useQuery({
     queryKey: ["orders"],
     queryFn: () => ordersStore.ordersRepo.getOrders(),
@@ -50,10 +51,39 @@ const expandedOrderResultsMap = computed(() => {
     );
 });
 
+const confirm = useConfirm();
+
 async function createCheckoutSession(orderId: string) {
     const stripe_url =
         await ordersStore.ordersRepo.createCheckoutSession(orderId);
     window.open(stripe_url, "_blank");
+}
+
+const confirmDeleteOrder = (event: any, orderId: string) => {
+    confirm.require({
+        target: event.currentTarget,
+        message: 'Are you sure you want to delete this order? This action cannot be undone.',
+        icon: 'pi pi-exclamation-triangle',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Delete',
+            severity: 'danger',
+        },
+        accept: async () => {
+            try {
+                await ordersStore.ordersRepo.deleteOrder(orderId);
+                // Refresh the orders list by invalidating the query
+                await refetchOrders();
+            } catch (error) {
+                console.error('Error deleting order:', error);
+                // You might want to show a toast notification here
+            }
+        },
+    });
 }
 </script>
 
@@ -71,13 +101,24 @@ async function createCheckoutSession(orderId: string) {
             </Column>
             <Column field="status" header="Status" sortable>
                 <template #body="slotProps">
-                    <Tag :severity="formatStatus(slotProps.data.status).severity">
-                        {{ formatStatus(slotProps.data.status).label }}
-                    </Tag>
-                    <Button v-if="slotProps.data.status === 'PENDING_PAYMENT'"
-                        @click="createCheckoutSession(slotProps.data.id)" class="ml-2">
-                        Pay
-                    </Button>
+                    <div class="flex items-center gap-2">
+                        <Tag :severity="formatStatus(slotProps.data.status).severity">
+                            {{ formatStatus(slotProps.data.status).label }}
+                        </Tag>
+                        <Button v-if="slotProps.data.status === 'PENDING_PAYMENT'"
+                            @click="createCheckoutSession(slotProps.data.id)" class="ml-2">
+                            Pay
+                        </Button>
+                        <Button 
+                            v-if="slotProps.data.status === 'PENDING_PAYMENT' && (!slotProps.data.payment || slotProps.data.payment.status === 'UNPAID')"
+                            severity="danger" 
+                            @click="confirmDeleteOrder($event, slotProps.data.id)"
+                            class="ml-2"
+                            size="small"
+                        >
+                            Delete
+                        </Button>
+                    </div>
                 </template>
             </Column>
             <Column field="serviceType" header="Cards" sortable>

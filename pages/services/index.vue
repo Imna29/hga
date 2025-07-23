@@ -8,7 +8,7 @@
             Our Services
         </div>
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="bg-white bg-opacity-10 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
+            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
                 <img src="/figure.svg" class="mx-auto" alt="Economy" />
             </div>
             <div class="p-4 gap-4 rounded-2xl w-3/4 ml-5 my-auto">
@@ -37,7 +37,7 @@
 
                 </div>
             </div>
-            <div class="bg-white bg-opacity-10 p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto relative">
+            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto relative">
                 <div
                     class="absolute top-0 left-0 right-0 bottom-0 text-red-500 bg-white/10 rounded-2xl flex items-center justify-center text-5xl font-bold">
                     <span class=" rotate-45">
@@ -49,7 +49,7 @@
 
         </div>
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="bg-white bg-opacity-10 p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 relative">
+            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 relative">
                 <div
                     class="absolute top-0 left-0 right-0 bottom-0 text-red-500 bg-white/10 rounded-2xl flex items-center justify-center text-5xl font-bold">
                     <span class=" rotate-45">

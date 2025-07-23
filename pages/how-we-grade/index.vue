@@ -131,7 +131,7 @@ const scales: {
         <div class="mt-10 w-11/12 mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <div v-for="scale in scales" :key="scale.grade"
-                    class="bg-white bg-opacity-10 border border-gray-500 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 rounded-xl">
+                    class="bg-white/10 border border-gray-500 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 rounded-xl">
                     <div>
                         <span class="text-2xl font-extrabold"
                             :class="`${scale.title === 'Pristine' ? 'text-yellow-500' : 'text-primary'}`">{{

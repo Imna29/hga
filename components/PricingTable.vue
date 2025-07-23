@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto py-8">
     <div v-for="(tier, i) in tiers" :key="tier.name"
-      class="rounded-2xl p-6 flex flex-col items-center bg-white bg-opacity-10 border-gray-500 border-2">
+      class="rounded-2xl p-6 flex flex-col items-center bg-white/10 border-gray-500 border-2">
       <div class="text-2xl font-bold mb-2">{{ tier.name }}</div>
       <div class="text-3xl font-semibold mb-1">
         ${{ tier.price }}<span class="text-base font-normal">/ea</span>

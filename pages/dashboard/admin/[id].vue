@@ -110,8 +110,8 @@ const confirmGradeUpdate = (event: any, index: number) => {
 }
 
 const fileupload = ref();
-const upload = () => {
-    fileupload.value[0].upload();
+const upload = (index: number) => {
+    fileupload.value[index].upload();
 };
 
 const onUpload = () => {
@@ -137,6 +137,34 @@ watch(
     },
     { immediate: true }
 );
+
+const { error: deleteError, mutate: mutateDeleteOrder, isPending: isDeleting } = useMutation({
+    mutationFn: () => adminStore.adminRepo.deleteOrder(id as string),
+    onSuccess: () => {
+        toast.add({ severity: 'success', summary: 'Order Deleted', life: 2000 });
+        navigateTo('/dashboard/admin');
+    },
+});
+
+const confirmDeleteOrder = (event: any) => {
+    confirm.require({
+        target: event.currentTarget,
+        message: 'Are you sure you want to delete this order? This action cannot be undone.',
+        icon: 'pi pi-exclamation-triangle',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Delete',
+            severity: 'danger',
+        },
+        accept: () => {
+            mutateDeleteOrder();
+        },
+    });
+}
 </script>
 
 <template>
@@ -144,10 +172,11 @@ watch(
         <!-- Loading and error states -->
         <div>
             <Button label="Back to Orders" icon="pi pi-arrow-left" @click="navigateTo('/dashboard/admin')" />
+            <Button label="Delete Order" icon="pi pi-trash" severity="danger" class="ml-2" @click="confirmDeleteOrder($event)" :loading="isDeleting" />
         </div>
-
         <div v-if="isPending">Loading order details...</div>
         <div v-else-if="error">Error loading order: {{ error }}</div>
+        <div v-else-if="deleteError" class="text-red-500">Error deleting order: {{ deleteError.message }}</div>
 
         <div v-else-if="order" class="flex flex-col gap-6">
 
@@ -289,7 +318,7 @@ watch(
             <Card v-if="order.pieces?.length">
                 <template #title>Order Pieces</template>
                 <template #content>
-                    <DataView :value="order.pieces as Piece[]"
+                    <DataView :value="order.pieces as Piece[]" dataKey="id"
                         v-if="order.pieces !== undefined && order.pieces?.length > 0">
                         <template #list="slotProps">
                             <div class="flex flex-col">
@@ -345,7 +374,7 @@ watch(
                                         </div>
                                         <FileUpload ref="fileupload" mode="basic" name="certificate" :url="`/api/admin/figures/${item.id}/certificate`"
                                             accept="application/pdf,application/vnd.ms-excel" :maxFileSize="1000000" @upload="onUpload" />
-                                        <Button label="Upload" @click="upload" severity="primary" />
+                                        <Button label="Upload" @click="upload(index)" severity="primary" />
                                     </div>
                                 </div>
                             </div>

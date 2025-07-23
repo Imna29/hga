@@ -47,30 +47,26 @@ function navigateTo(path: string) {
     <div class="absolute -z-10">
       <img src="/gradient.png" alt="Gradient Background" />
     </div>
-    <div class="absolute -z-10 ">
-      <img src="/gradient-2.png" class="w-fit object-contain opacity-60" alt="Gradient Background" />
-    </div>
+    
     <div class="absolute -z-10 ">
       <img src="/gradient-3.png" class="w-fit object-contain opacity-60" alt="Gradient Background" />
     </div>
 
     <!-- Background stars image -->
-    <div class="absolute -z-10">
-      <img src="/stars.png" alt="Gradient Background" />
-    </div>
+   
 
     <div class="container mx-auto pt-2 min-h-dvh">
       <!-- Navbar Container -->
       <div class=" p-4 flex items-center justify-between">
         <!-- Left: Logo -->
-        <div>
-          <NuxtLink to="/" class="font-mono text-4xl logo">
+        <div class="z-50">
+          <NuxtLink to="/" class="font-mono text-4xl logo ">
             <img src="/hfa_logo.png" alt="Logo" class="h-12 w-auto inline-block mr-2" />
           </NuxtLink>
         </div>
 
         <!-- Center: Menu Items -->
-        <div class="bg-white/10 py-3 px-8 rounded-full">
+        <div class="bg-white/10 py-3 px-8 rounded-full z-50">
           <nav class="flex gap-6">
             <template v-for="item in items" :key="item.label">
               <!-- Simple link item -->
@@ -99,18 +95,18 @@ function navigateTo(path: string) {
         </div>
 
         <!-- Right: Sign In Button -->
-        <div class="flex gap-4">
+        <div class="flex gap-4 z-50 cursor-pointer">
           <SignedOut>
-            <button @click="navigateTo('/sign-in')">
+            <button @click="navigateTo('/sign-in')" class="cursor-pointer">
               Login
             </button>
           </SignedOut>
           <SignedIn>
-            <button @click="navigateTo('/dashboard')">
+            <button @click="navigateTo('/dashboard')" class="cursor-pointer">
               Dashboard
             </button>
           </SignedIn>
-          <button class="sign-in-btn" @click="navigateTo('/order')">
+          <button class="sign-in-btn cursor-pointer" @click="navigateTo('/order')">
             Start Now
           </button>
         </div>
@@ -130,6 +126,15 @@ function navigateTo(path: string) {
         </div>
       </div>
     </div>
+    <FluidCursor />
+    <ParticlesBg
+      class="absolute inset-0 -z-10"
+      :quantity="500"
+      :ease="100"
+      :color="'#FFF'"
+      :staticity="10"
+      refresh
+    />
   </div>
 </template>
 

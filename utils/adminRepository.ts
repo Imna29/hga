@@ -57,5 +57,10 @@ export const adminRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
       method: "POST",
       body: data,
     });
+  },
+  async deleteOrder(id: string) {
+    return fetch<Order>(`/admin/orders/${id}`, {
+      method: "DELETE"
+    });
   }
 });

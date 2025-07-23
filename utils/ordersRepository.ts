@@ -67,5 +67,11 @@ export const ordersRepository = <T>(fetch: $Fetch<T, NitroFetchRequest>) => ({
 
 	async getOrder(orderId: string) {
 		return fetch<Order>("/orders/" + orderId);
+	},
+
+	async deleteOrder(orderId: string) {
+		return fetch<{ message: string }>("/orders/" + orderId, {
+			method: "DELETE",
+		});
 	}
 });

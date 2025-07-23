@@ -15,6 +15,8 @@ enum ServiceType {
 }
 const ordersStore = useOrdersStore();
 const uploading = ref<boolean>(false);
+const errorMessage = ref<string>("");
+const showError = ref<boolean>(false);
 
 const createOrderSchema = z.object({
     type: z.nativeEnum(ServiceType),
@@ -71,39 +73,58 @@ watch(type, (newType) => {
 
 const submit = handleSubmit(async (values) => {
     uploading.value = true;
-    const orderData = {
-        type: values.type,
-        quantity: values.quantity,
-    }
-
-    const orderResult = await ordersStore.ordersRepo.createOrder(orderData);
-
-    for (let index = 0; index < values.items.length; index++) {
-        const item = values.items[index];
-        const itemFiles = values.items[index].files;
-
-        const formData = new FormData();
-        formData.append("name", item.name);
-        if (item.description) {
-            formData.append("description", item.description);
+    errorMessage.value = "";
+    showError.value = false;
+    
+    try {
+        const orderData = {
+            type: values.type,
+            quantity: values.quantity,
         }
 
-        // Convert declaredValue to cents
-        formData.append("declaredValue", (item.declaredValue * 100).toString());
+        const orderResult = await ordersStore.ordersRepo.createOrder(orderData);
 
-        for (let i = 0; i < itemFiles.length; i++) {
-            formData.append("images", itemFiles[i]);
+        for (let index = 0; index < values.items.length; index++) {
+            const item = values.items[index];
+            const itemFiles = values.items[index].files;
+
+            const formData = new FormData();
+            formData.append("name", item.name);
+            if (item.description) {
+                formData.append("description", item.description);
+            }
+
+            // Convert declaredValue to cents
+            formData.append("declaredValue", (item.declaredValue * 100).toString());
+
+            for (let i = 0; i < itemFiles.length; i++) {
+                formData.append("images", itemFiles[i]);
+            }
+
+            await ordersStore.ordersRepo.createOrderItem(orderResult.id, formData);
         }
 
+        const stripe_url = await ordersStore.ordersRepo.createCheckoutSession(orderResult.id);
 
-        await ordersStore.ordersRepo.createOrderItem(orderResult.id, formData);
-
+        window.open(stripe_url);
+    } catch (error: any) {
+        console.error('Order submission error:', error);
+        
+        // Handle different types of errors
+        if (error?.data?.message) {
+            errorMessage.value = error.data.message;
+        } else if (error?.message) {
+            errorMessage.value = error.message;
+        } else if (typeof error === 'string') {
+            errorMessage.value = error;
+        } else {
+            errorMessage.value = "An unexpected error occurred. Please try again.";
+        }
+        
+        showError.value = true;
+    } finally {
+        uploading.value = false;
     }
-
-    const stripe_url = await ordersStore.ordersRepo.createCheckoutSession(orderResult.id);
-    //navigate to stripe checkout url in new tab
-    window.open(stripe_url);
-    uploading.value = false;
 });
 
 const prices = {
@@ -126,6 +147,11 @@ const maxiQuantity = computed(() => {
 function onFileSelect(index: number, event: FileUploadSelectEvent) {
     const selectedFiles = event.files;
     items.value![index].files = selectedFiles;
+}
+
+function clearError() {
+    showError.value = false;
+    errorMessage.value = "";
 }
 </script>
 
@@ -223,8 +249,14 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
                                             </Fieldset>
 
                                         </div>
+                                        <Message v-if="uploading" severity="info" class="mt-2">
+                                            Creating your order, please wait...
+                                        </Message>
                                         <Message v-if="errors.items" severity="error" class="mt-2">
                                             {{ errors.items }}
+                                        </Message>
+                                        <Message v-if="showError" severity="error" class="mt-2" :closable="true" @close="clearError">
+                                            {{ errorMessage }}
                                         </Message>
                                         <div class="mt-2 w-full text-end text-lg font-semibold">
                                             Total (Without fees): ${{ quantity! * prices[type!] }}
@@ -234,7 +266,7 @@ function onFileSelect(index: number, event: FileUploadSelectEvent) {
                                 <div class="flex py-4 justify-between px-4">
                                     <Button label="Back" severity="secondary" icon="pi pi-arrow-left"
                                         @click="activateCallback('1')" />
-                                    <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="submit()" />
+                                    <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="submit()" :loading="uploading" />
                                 </div>
                             </StepPanel>
 
