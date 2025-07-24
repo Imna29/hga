@@ -7,8 +7,8 @@
         <div class="text-5xl font-bold text-center mt-4">
             Our Services
         </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10 max-w-7xl mx-auto">
+            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 aspect-square flex items-center justify-center">
                 <img src="/figure.svg" class="mx-auto" alt="Economy" />
             </div>
             <div class="p-4 gap-4 rounded-2xl w-3/4 ml-5 my-auto">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10 max-w-7xl mx-auto">
             <div class=" p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 my-auto">
                 <div class="text-4xl font-bold">
                     Tall Figure
@@ -37,7 +37,7 @@
 
                 </div>
             </div>
-            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto relative">
+            <div class="bg-gray-400/10 backdrop-blur-sm aspect-square p-4 gap-4 rounded-2xl w-3/4 ml-5 mr-auto relative flex items-center justify-center">
                 <div
                     class="absolute top-0 left-0 right-0 bottom-0 text-red-500 bg-white/10 rounded-2xl flex items-center justify-center text-5xl font-bold">
                     <span class=" rotate-45">
@@ -48,8 +48,8 @@
             </div>
 
         </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-            <div class="bg-gray-400/10 backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 relative">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-10 max-w-7xl mx-auto">
+            <div class="bg-gray-400/10 aspect-square backdrop-blur-sm p-4 gap-4 rounded-2xl w-3/4 ml-auto mr-5 relative flex items-center justify-center">
                 <div
                     class="absolute top-0 left-0 right-0 bottom-0 text-red-500 bg-white/10 rounded-2xl flex items-center justify-center text-5xl font-bold">
                     <span class=" rotate-45">

@@ -46,9 +46,9 @@ useHead({
         </div>
       </div>
     </div>
-    <div class="grid gap-24 relative">
-      <div class="grid md:w-7/12 w-3/4 md:grid-cols-2 grid-cols-1 mx-auto md:gap-24 gap-8 mt-32">
-        <div class="relative flex flex-col gap-6 text-center bg-white/10 p-8 rounded-2xl ">
+    <div class="grid md:gap-24 gap-8 relative">
+      <div class="grid md:w-8/12 w-full lg:grid-cols-2 grid-cols-1 mx-auto md:gap-8 gap-1 mt-32">
+        <div class="relative flex flex-col gap-6 text-center bg-white/10 p-8 rounded-2xl aspect-square w-full h-full">
           <GlowBorder :color="['#0A7CFF', '#1a36b4', '#4A90E2']"/>
           <div class="text-5xl font-semibold leading-normal">Who Are We?</div>
           <div class="text-lg px-4">
@@ -60,7 +60,7 @@ useHead({
             collection.
           </div>
         </div>
-        <div class="relative flex flex-col gap-6 bg-white/10 p-8 rounded-2xl ">
+        <div class="relative flex flex-col gap-6 bg-white/10 p-8 rounded-2xl aspect-square w-full">
           <GlowBorder :color="['#0A7CFF', '#1a36b4', '#4A90E2']"/>
           <div class="text-5xl font-semibold leading-normal text-center">
             How It Works
