@@ -126,7 +126,6 @@ function navigateTo(path: string) {
         </div>
       </div>
     </div>
-    <FluidCursor />
     <ParticlesBg
       class="absolute inset-0 -z-10"
       :quantity="500"

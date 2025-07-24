@@ -20,25 +20,25 @@ useHead({
 <template>
   <div>
 
-    <div class="w-full md:grid grid-cols-2 h-[500px]">
-      <div>
+    <div class="w-full md:grid grid-cols-2 min-h-[500px] md:h-[500px]">
+      <div class="order-2 md:order-1">
         <img src="/case_new.svg" alt="hero" class="object-cover h-full w-full" />
       </div>
-      <div class="mt-20 pr-10">
+      <div class="order-1 md:order-2 flex flex-col justify-center items-end text-right px-4 md:px-10 py-8 md:py-0">
         <ClientOnly>
           <BlurReveal>
-            <h1 class="text-6xl font-bold text-center">Immortalize Perfection.</h1>
+            <h1 class="text-4xl md:text-6xl font-bold whitespace-nowrap">Immortalize Perfection.</h1>
           </BlurReveal>
         </ClientOnly>
         <RadiantText :duration="5"
-          class="block items-end justify-end w-full text-4xl mt-4  transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+          class="block text-2xl md:text-4xl mt-4 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
           Elevate your collection!
         </RadiantText>
 
-        <div class="mx-auto w-fit flex gap-2">
+        <div class="w-fit flex gap-2">
           <ShimmerButton class="shadow-2xl mt-4 py-3 px-4 rounded-full font-medium !bg-[#0A7CFF]" shimmer-size="4px"
             size="large" @click="navigateTo('/order')">
-            <span class="text-xl flex gap-2 text-white">
+            <span class="text-lg md:text-xl flex gap-2 text-white">
               <Flame class="fill-white stroke-0" />
               Start Now
             </span>
